@@ -18,4 +18,17 @@ public class WorkerFixSalary extends Employee{
     public float getFixSalary() {
         return fixSalary;
     }
+
+
+    /**
+     * Переопределение абстрактного метода рассчета для сотрудника с фиксированной ставкой
+     * @param worker
+     * @return
+     */
+    @Override
+    protected float calculateMonthlySalary(Employee worker) {
+        worker.monthlySalary = ((WorkerFixSalary) worker).fixSalary;
+        System.out.printf("\nРаботник: %s ; среднемесячная зарплата: %s", worker.name, worker.monthlySalary);
+        return worker.monthlySalary;
+    }
 }
